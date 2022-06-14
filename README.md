@@ -95,4 +95,4 @@ At this time, this method only works for Nudge Swift, not Nudge Python
 
 There isn't a fallback for what Nudge will do if the targeted application isn't present, which can cause problems. I recommend including flavor text in your Nudge window to educate the user on how to get to System Preferences → Software Update manually if they wish to trigger the update at their convenience.
 
-If you use the Privileges Aware addition, it will check for the Privileges application in /Applications or /Applications/Utilities and if found, check whether the user is currently an admin, and if they are not it will promote them to an administrator.
+If you use the Privileges Aware addition, it will check for the Privileges application in /Applications or /Applications/Utilities and if found, check whether the user is currently an administrator, and if they are not it will promote them to an administrator.
