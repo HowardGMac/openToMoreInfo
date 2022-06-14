@@ -3,7 +3,7 @@ tell application "System Preferences"
 end tell
 
 tell application "System Events"
-	do shell script "/Applications/Utilities/openToMoreInfo.app/Contents/Resources/checkForPrivilegesApp.sh"
+	do shell script "/Applications/Utilities/Loading Available Updates.app/Contents/Resources/checkForPrivilegesApp.sh"
 	repeat 60 times
 		if exists (window 1 of process "System Preferences") then
 			exit repeat
