@@ -31,6 +31,8 @@ You'll need to define a path using the `file` URI that points at your app. Pleas
 
 In Script Editor on your device, [paste this code](https://github.com/xirianlight/openToMoreInfo/blob/main/Loading%20Available%20Updates.scpt)
 
+If you are using the Privileges aware addition, make sure the path in the "do shell script" line matches your intended application installation path. In my version the application is installed in /Applications/Utilities.
+
 Select File → Export
 
 Set File Format to "Application"
@@ -41,7 +43,13 @@ For code signing, you have two options:
 
 * Set Code Sign to "Don't Code Sign" when you've finished testing - you'll be editing the .app bundle and signing it manually to hide the Dock icon while it is running.
 
-###  1a. Hide the app from the Dock
+###  1a. Add checkForPrivilegesApp.sh to application bundle
+
+If you are using the Privileges aware addition, locate your created app and open dig through the package to Contents/Resources folder
+
+Place a copy of the checkForPrivilegesApp.sh script in the folder.
+
+###  1b. Hide the app from the Dock
 
 Locate your created app and open dig through the package to Contents/Info.plist
 
@@ -86,3 +94,5 @@ If the PPPC is not present on a target workstation and you run this, the user wi
 At this time, this method only works for Nudge Swift, not Nudge Python
 
 There isn't a fallback for what Nudge will do if the targeted application isn't present, which can cause problems. I recommend including flavor text in your Nudge window to educate the user on how to get to System Preferences → Software Update manually if they wish to trigger the update at their convenience.
+
+If you use the Privileges Aware addition, it will check for the Privileges application in /Applications or /Applications/Utilities and if found, check whether the user is currently an admin, and if they are not it will promote them to an administrator.
